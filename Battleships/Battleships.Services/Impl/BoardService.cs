@@ -30,16 +30,7 @@ namespace Battleships.Services.Impl
                 throw new InvalidAttackException(
                     $"Attack outside the board dimension. Board is {board.Length} X {board.Breadth}");
 
-            //Check horizontally
-
-            var hit = board.Ships.Any(s =>
-                s.Orientation.Equals(Orientation.Horizontal) &&
-                s.Bow.Y == attack.AttackY &&
-                s.Bow.X <= attack.AttackX && s.Bow.X + (s.Length - 1) >= attack.AttackX
-                ||
-                s.Orientation.Equals(Orientation.Vertical) &&
-                s.Bow.X == attack.AttackX &&
-                s.Bow.Y >= attack.AttackY && s.Bow.Y - (s.Length - 1) <= attack.AttackY);
+            bool hit = board.Cells[attack.AttackX, attack.AttackY] == Occupancy.Occupied;
             
             return new AttackOutcome
             {

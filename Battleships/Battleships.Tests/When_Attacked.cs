@@ -4,6 +4,7 @@ using Battleships.Api.Controllers;
 using Battleships.Domain.Entities;
 using Battleships.Infrastructure.Exceptions;
 using Battleships.Services.Dto;
+using Battleships.Test.Builders;
 using Battleships.Test.Fixtures;
 using Battleships.Test.TestDoubles;
 using FluentAssertions;
@@ -30,22 +31,23 @@ namespace Battleships.Test
                 var board = new Board
                 {
                     Id = boardId,
-                    Ships = new List<Ship>
-                    {
-                        new Ship
-                        {
-                            Bow = new Coordinates(2, 4),
-                            Id = 1,
-                            Length = 3,
-                            Orientation = orientation
-                        }
-                    }
                 };
+
+                var ship = new ShipBuilder()
+                    .WithLength(3)
+                    .WithBowX(2)
+                    .WithBowY(4)
+                    .WithOrientation(orientation)
+                    .Build();
                 
                 var repository = new BattleshipRepositorySpy
                 {
                     Boards = new List<Board> { board }
                 };
+                
+                //Create an existing ship
+                ShipController shipController = new ShipControllerFixture().WithRepository(repository).CreateSut();
+                await shipController.Create(boardId, ship);
                 
                 //Create new attack at a location not occupied by ships
                 var attack = new AttackDto { AttackX = attackX, AttackY = attackY };
@@ -72,23 +74,24 @@ namespace Battleships.Test
                 int boardId = 1;
                 var board = new Board
                 {
-                    Id = boardId,
-                    Ships = new List<Ship>
-                    {
-                        new Ship
-                        {
-                            Bow = new Coordinates(2, 4),
-                            Id = 1,
-                            Length = 3,
-                            Orientation = Orientation.Horizontal
-                        }
-                    }
+                    Id = boardId
                 };
+                
+                var ship = new ShipBuilder()
+                    .WithLength(3)
+                    .WithBowX(2)
+                    .WithBowY(4)
+                    .WithOrientation(Orientation.Horizontal)
+                    .Build();
                 
                 var repository = new BattleshipRepositorySpy
                 {
                     Boards = new List<Board> { board }
                 };
+                
+                //Create an existing ship
+                ShipController shipController = new ShipControllerFixture().WithRepository(repository).CreateSut();
+                await shipController.Create(boardId, ship);
                 
                 //Create new attack at a location not occupied by ships
                 var attack = new AttackDto { AttackX = attackX, AttackY = attackY };
