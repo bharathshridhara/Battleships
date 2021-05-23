@@ -1,0 +1,10 @@
+.tmp/
+.vs/
+.history/
+bin/
+/buildOutput/
+logs/
+obj/
+*.*proj.user
+.idea/
+*.log

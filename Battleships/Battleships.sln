@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battleships.Api", "Battleships.Api\Battleships.Api.csproj", "{488D88D0-962F-441C-8C4D-0335AC8A6F0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{18FF01B9-E4BB-4E91-8CAE-304D811D16D9}"
+ProjectSection(SolutionItems) = preProject
+	.gitignore = .gitignore
+EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battleships.Services", "Battleships.Services\Battleships.Services.csproj", "{0FC3F700-E740-4CE3-97BE-18B922FFB4C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battleships.Data", "Battleships.Data\Battleships.Data.csproj", "{AD694570-88E9-438B-B8CF-375B75E2854B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battleships.Domain", "Battleships.Domain\Battleships.Domain.csproj", "{9CF9A4D1-325D-4E82-9B69-8476D4FF5906}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battleships.Infrastructure", "Battleships.Infrastructure\Battleships.Infrastructure.csproj", "{82B05A52-A41C-4A0A-8D5F-3B9BCBB8FD5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B193BFDD-B942-472E-867E-AD8A670422E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2A8B498F-8070-4DD9-A920-5FF31245F6AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battleships.Tests", "Battleships.Tests\Battleships.Tests.csproj", "{07EC8DAA-BF02-4353-ADA7-715632D94538}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{488D88D0-962F-441C-8C4D-0335AC8A6F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{488D88D0-962F-441C-8C4D-0335AC8A6F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{488D88D0-962F-441C-8C4D-0335AC8A6F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{488D88D0-962F-441C-8C4D-0335AC8A6F0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FC3F700-E740-4CE3-97BE-18B922FFB4C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FC3F700-E740-4CE3-97BE-18B922FFB4C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FC3F700-E740-4CE3-97BE-18B922FFB4C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FC3F700-E740-4CE3-97BE-18B922FFB4C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD694570-88E9-438B-B8CF-375B75E2854B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD694570-88E9-438B-B8CF-375B75E2854B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD694570-88E9-438B-B8CF-375B75E2854B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD694570-88E9-438B-B8CF-375B75E2854B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CF9A4D1-325D-4E82-9B69-8476D4FF5906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF9A4D1-325D-4E82-9B69-8476D4FF5906}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF9A4D1-325D-4E82-9B69-8476D4FF5906}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF9A4D1-325D-4E82-9B69-8476D4FF5906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82B05A52-A41C-4A0A-8D5F-3B9BCBB8FD5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82B05A52-A41C-4A0A-8D5F-3B9BCBB8FD5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82B05A52-A41C-4A0A-8D5F-3B9BCBB8FD5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82B05A52-A41C-4A0A-8D5F-3B9BCBB8FD5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07EC8DAA-BF02-4353-ADA7-715632D94538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07EC8DAA-BF02-4353-ADA7-715632D94538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07EC8DAA-BF02-4353-ADA7-715632D94538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07EC8DAA-BF02-4353-ADA7-715632D94538}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{488D88D0-962F-441C-8C4D-0335AC8A6F0C} = {B193BFDD-B942-472E-867E-AD8A670422E4}
+		{AD694570-88E9-438B-B8CF-375B75E2854B} = {B193BFDD-B942-472E-867E-AD8A670422E4}
+		{9CF9A4D1-325D-4E82-9B69-8476D4FF5906} = {B193BFDD-B942-472E-867E-AD8A670422E4}
+		{82B05A52-A41C-4A0A-8D5F-3B9BCBB8FD5B} = {B193BFDD-B942-472E-867E-AD8A670422E4}
+		{0FC3F700-E740-4CE3-97BE-18B922FFB4C4} = {B193BFDD-B942-472E-867E-AD8A670422E4}
+		{07EC8DAA-BF02-4353-ADA7-715632D94538} = {2A8B498F-8070-4DD9-A920-5FF31245F6AA}
+	EndGlobalSection
+EndGlobal
