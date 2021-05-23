@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "b59c9624-e14e-42a9-a663-16414ffd9db9",
+		"name": "Battleships-Api",
+		"description": "A simple Api to handle state tracking for the Battleships game",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Board",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/board",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"board"
+					]
+				},
+				"description": "Create a new board for the game. All subsequent calls to create ships and issue attacks will reference this board."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Ship",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"BowX\": 4,\n    \"BowY\": 5,\n    \"Length\": 2,\n    \"Orientation\":1\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/board/1/ship/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"board",
+						"1",
+						"ship",
+						""
+					]
+				},
+				"description": "Create a new ship, by specifying the co-ordinates, length and orientation of the ship. The ship creation will fail if the co-ordinates fall outside the board, or if there is another ship at those co-ordinates."
+			},
+			"response": []
+		},
+		{
+			"name": "Launch Attack",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"AttackX\": 4,\n    \"AttackY\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/board/1/attack",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"board",
+						"1",
+						"attack"
+					]
+				},
+				"description": "Send an attack to the board specifying the coordinates. The outcome will be a \"Hit\" or a \"Miss\" if the co-ordinates are within the board limits"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Board",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/board/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"board",
+						"1"
+					]
+				},
+				"description": "Delete the board. End the game."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Board",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/board/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"board",
+						"1"
+					]
+				},
+				"description": "Get details of the board by ID. Returns Id of the board, along with the dimensions of the board."
+			},
+			"response": []
+		}
+	]
+}

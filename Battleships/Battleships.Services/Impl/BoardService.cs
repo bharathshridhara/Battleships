@@ -40,15 +40,7 @@ namespace Battleships.Services.Impl
                 s.Orientation.Equals(Orientation.Vertical) &&
                 s.Bow.X == attack.AttackX &&
                 s.Bow.Y >= attack.AttackY && s.Bow.Y - (s.Length - 1) <= attack.AttackY);
-
-            // //check vertically
-            // if (!hit)
-            // {
-            //     hit = board.Ships.Any(s => 
-            //         s.Orientation.Equals(Orientation.Vertical) && 
-            //         s.Bow.Y >= attack.AttackY && s.Bow.Y - (s.Length - 1) <= attack.AttackY);
-            // }
-
+            
             return new AttackOutcome
             {
                 Outcome = hit ? "Hit" : "Miss"
@@ -64,12 +56,7 @@ namespace Battleships.Services.Impl
         {
             await _repository.DeleteBoard(id);
         }
-
-        private Board GetEntity(BoardDto dto)
-        {
-            return BoardDto.ConvertToEntity(dto);
-        }
-
+        
         private BoardDto GetDto(Board board)
         {
             return BoardDto.ConvertFromEntity(board);

@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Battleships.Api.Controllers
 {
-    //[Route("api/board/{id}/ship")]
     public class ShipController : ControllerBase
     {
         private readonly IShipService _shipService;
@@ -16,6 +15,12 @@ namespace Battleships.Api.Controllers
             _shipService = shipService;
         }
 
+        /// <summary>
+        /// Create a new ship on the board specified by ID
+        /// </summary>
+        /// <param name="boardId">ID of the board</param>
+        /// <param name="ship">The ship details to be created</param>
+        /// <returns>The ship created, if successful.</returns>
         [Route("api/board/{boardId}/ship")]
         [HttpPost]
         [ProducesResponseType(typeof(ShipDto), (int) HttpStatusCode.OK)]

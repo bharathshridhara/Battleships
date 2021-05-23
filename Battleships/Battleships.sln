@@ -21,6 +21,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2A8B498F-8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battleships.Tests", "Battleships.Tests\Battleships.Tests.csproj", "{07EC8DAA-BF02-4353-ADA7-715632D94538}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "postman", "postman", "{9127225E-D568-4506-8B5D-309CCD8B4527}"
+ProjectSection(SolutionItems) = preProject
+	postman\Battleships-Api.postman_collection.json = postman\Battleships-Api.postman_collection.json
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,5 +64,6 @@ Global
 		{82B05A52-A41C-4A0A-8D5F-3B9BCBB8FD5B} = {B193BFDD-B942-472E-867E-AD8A670422E4}
 		{0FC3F700-E740-4CE3-97BE-18B922FFB4C4} = {B193BFDD-B942-472E-867E-AD8A670422E4}
 		{07EC8DAA-BF02-4353-ADA7-715632D94538} = {2A8B498F-8070-4DD9-A920-5FF31245F6AA}
+		{9127225E-D568-4506-8B5D-309CCD8B4527} = {18FF01B9-E4BB-4E91-8CAE-304D811D16D9}
 	EndGlobalSection
 EndGlobal
