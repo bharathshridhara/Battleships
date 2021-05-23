@@ -84,5 +84,63 @@ namespace Battleships.Test
                     () => sut.Create(theory.Board.Id, theory.ShipDto));
             }
         }
+
+        public class And_Ship_Fouls_On_Existing_Ship
+        {
+            [Fact]
+            public async Task It_Throws_InvalidShipPositionException()
+            {
+                int boardId = 1;
+                var ship1 = new ShipBuilder()
+                    .WithLength(2)
+                    .WithOrientation(Orientation.Horizontal)
+                    .WithBowX(0)
+                    .WithBowY(4)
+                    .Build();
+                
+                var ship2 = new ShipBuilder()
+                    .WithLength(2)
+                    .WithOrientation(Orientation.Vertical)
+                    .WithBowX(0)
+                    .WithBowY(2)
+                    .Build();
+                
+                var ship3 = new ShipBuilder()
+                    .WithLength(3)
+                    .WithOrientation(Orientation.Horizontal)
+                    .WithBowX(1)
+                    .WithBowY(3)
+                    .Build();
+                
+                //Create a board using the spy
+                var repository = new BattleshipRepositorySpy
+                {
+                    Boards = new List<Board>
+                    {
+                        new Board{ Id = boardId}
+                    }
+                };
+                
+                var sut = new ShipControllerFixture()
+                    .WithRepository(repository)
+                    .CreateSut();
+
+                //Create 3 ships
+                await sut.Create(boardId, ship1);
+                await sut.Create(boardId, ship2);
+                await sut.Create(boardId, ship3);
+                
+                //Create 4th ship that will foul with ship3 when placed
+                var ship4 = new ShipBuilder()
+                    .WithLength(3)
+                    .WithOrientation(Orientation.Vertical)
+                    .WithBowX(3)
+                    .WithBowY(4)
+                    .Build();
+
+                await Assert.ThrowsAsync<InvalidShipPositionException>(
+                    () => sut.Create(boardId, ship4));
+            }
+        }
     }
 }

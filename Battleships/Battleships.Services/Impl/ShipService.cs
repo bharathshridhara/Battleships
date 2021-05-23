@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Data;
 using Battleships.Domain.Entities;
@@ -20,40 +21,52 @@ namespace Battleships.Services.Impl
             var board = await _repository.GetBoard(boardId);
             if (board == null)
                 throw new NotFoundException($"Board with ID: {boardId} not found");
-
+            
             if (ship.BowX > board.Length ||
                 ship.BowY > board.Breadth ||
                 !CanShipFitOnBoard(board, ship))
                 throw new InvalidShipPositionException(
                     "Ship cannot be positioned at this location. It is beyond board dimensions");
 
+            //Check if the new ship fouls on existing ships on the board
+            int startingPoint = 0, endingPoint = 0;
+            if (ship.Orientation == Orientation.Horizontal)
+            {
+                startingPoint = ship.BowX;
+                endingPoint = ship.BowX + ship.Length - 1;
+                for (int i = startingPoint; i <= endingPoint; i++)
+                {
+                    TryPlaceShip(i, ship.BowY, board.Cells);
+                }
+            }
+            else
+            {
+                startingPoint = ship.BowY;
+                endingPoint = ship.BowY - (ship.Length - 1);
 
-            // //Check if this ship would foul other ships on this board
-            // var boardArray = new int[board.Length, board.Breadth];
-            // for (int i = 0; i < board.Length; i++)
-            // {
-            //     for (int j = 0; j < board.Breadth; j++)
-            //     {
-            //         boardArray[i, j] = 
-            //     }
-            // }
-            //
-            //
-            //     )
-
+                for (int i = startingPoint; i >= endingPoint; i--)
+                {
+                    TryPlaceShip(ship.BowX, i, board.Cells);
+                }
+            }
+            
             return GetDto(
                 await _repository.CreateShip(boardId, GetEntity(ship)));
         }
 
-        private Ship GetEntity(ShipDto ship)
+        private void TryPlaceShip(int x, int y, Occupancy[,] cells)
         {
-            return ShipDto.ConvertToEntity(ship);
+            if (cells[x, y] == Occupancy.Occupied)
+            {
+                throw new InvalidShipPositionException($"Collision detected at position [{x},{y}]. Ship cannot be placed here");
+            }
+
+            cells[x, y] = Occupancy.Occupied;
         }
 
-        private ShipDto GetDto(Ship ship)
-        {
-            return ShipDto.ConvertFromEntity(ship);
-        }
+        private Ship GetEntity(ShipDto ship) => ShipDto.ConvertToEntity(ship);
+
+        private ShipDto GetDto(Ship ship) => ShipDto.ConvertFromEntity(ship);
 
         private bool CanShipFitOnBoard(Board board, ShipDto ship)
         {

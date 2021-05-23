@@ -11,6 +11,7 @@
     &lt;TestId&gt;xUnit::07EC8DAA-BF02-4353-ADA7-715632D94538::.NETCoreApp,Version=v5.0::Battleships.Test.When_Attacked+And_Attack_Fails_To_Find_Ship.It_Returns_Miss_Response&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::07EC8DAA-BF02-4353-ADA7-715632D94538::.NETCoreApp,Version=v5.0::Battleships.Test.When_Attacked+And_Attack_Fails_To_Find_Ship&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::07EC8DAA-BF02-4353-ADA7-715632D94538::.NETCoreApp,Version=v5.0::Battleships.Test.When_Attacked+And_Attack_Falls_On_Ship.It_Returns_Hit_Response&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::07EC8DAA-BF02-4353-ADA7-715632D94538::.NETCoreApp,Version=v5.0::Battleships.Test.When_Creating_New_Ship+And_Ship_Fouls_On_Existing_Ship&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5e9b1d50_002D3919_002D4c9c_002D830d_002D2044d744082f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="It_Returns_A_New_Board" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
