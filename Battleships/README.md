@@ -26,4 +26,4 @@ There is a postman collection included in the repository that contains the Api c
 
 
 Diagram:
-![Alt Architecure diagram]Diagram.png
+![Alt Architecure diagram](Diagram.png)
