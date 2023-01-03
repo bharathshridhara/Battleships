@@ -25,3 +25,5 @@ The swagger URL is at `http://localhost:5000/index.html`
 There is a postman collection included in the repository that contains the Api calls with the request pre-populated. Please import the JSON file into Postman app and try the Api out.
 
 
+Diagram:
+![Alt Architecure diagram]Diagram.png
