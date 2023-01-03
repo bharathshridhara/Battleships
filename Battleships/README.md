@@ -27,3 +27,4 @@ There is a postman collection included in the repository that contains the Api c
 
 Diagram:
 ![Alt Architecure diagram](Diagram.png)
+Edit - http://jgraph.github.io/drawio-github/edit-diagram.html?repo=battleships&path=diagram.png&action=open
